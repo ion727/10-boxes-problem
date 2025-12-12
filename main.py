@@ -39,7 +39,7 @@ class state:
         
 
 class System:
-    def __init__(self, size=10, max_moves=10, scope = 0):
+    def __init__(self, size=10, max_moves=10):
         self.size=size
         self.max_moves=max_moves
         self.boards = [state((size,max_moves), coin_pos=i) for i in range(size)]
@@ -52,9 +52,9 @@ class System:
                 print(total)
         print(total); quit()'''
         
-        for k,move in enumerate(moves(self.size + scope)):
+        for k,move in enumerate(moves(self.max_moves)):
             if k % 100000 == 0:
-                print(move)
+                print(f"Calculating...({round(k/2579623.20, 2)}%)", end="\r")
             valid:bool = True
             for hash_ in self.all_completed_hashes:
                 if not any(move[i] == hash_[i] for i in range(len(hash_))):
