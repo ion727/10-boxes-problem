@@ -33,7 +33,7 @@ def moves(s):
     def build_sorted(prev, length):
         if length == s:
             # Check endpoint conditions only once fully built
-            if prev[0] <= 1 and prev[-1] >= s - 1:
+            if prev[0] <= 1 and prev[-1] >= s - 2:
                 yield prev
             return
 
